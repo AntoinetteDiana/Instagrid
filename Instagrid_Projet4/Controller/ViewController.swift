@@ -20,11 +20,19 @@ class ViewController: UIViewController {
     @IBOutlet var photo3Button : UIButton!
     @IBOutlet var photo4Button : UIButton!
     
+//    Photo Stack View declaration
+    @IBOutlet var photoView : UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let swipeGestureUp = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture))
+        swipeGestureUp.direction = UISwipeGestureRecognizer.Direction.up
+        photoView.addGestureRecognizer(swipeGestureUp)
     }
 
+
+    
     @IBAction func tapLayout1Button(_ sender: UIButton) {
         updateLayoutStacking(withLayoutButton: layout1Button)
         updatePhotoStacking(withLayoutButton: layout1Button)
@@ -38,6 +46,17 @@ class ViewController: UIViewController {
     @IBAction func tapLayout3Button(_ sender: UIButton) {
         updateLayoutStacking(withLayoutButton: layout3Button)
         updatePhotoStacking(withLayoutButton: layout3Button)
+    }
+    
+    @IBAction func respondToSwipeGesture(_ sender: UISwipeGestureRecognizer) {
+        switch sender.direction {
+        case UISwipeGestureRecognizer.Direction.up :
+            UIView.animate(withDuration: 0.5, delay: 0, options: [], animations: { [self] in
+                photoView.transform = CGAffineTransform(translationX: 0, y: -UIScreen.main.bounds.height)
+            }, completion: nil)
+            
+        default:break
+        }
     }
     
     private func updateLayoutStacking(withLayoutButton : UIButton) {
