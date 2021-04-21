@@ -25,6 +25,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateLayoutStacking(withLayoutButton: layout2Button)
+        updatePhotoStacking(withLayoutButton: layout2Button)
         
         let swipeGestureUp = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture))
         swipeGestureUp.direction = UISwipeGestureRecognizer.Direction.up
@@ -51,12 +53,28 @@ class ViewController: UIViewController {
     @IBAction func respondToSwipeGesture(_ sender: UISwipeGestureRecognizer) {
         switch sender.direction {
         case UISwipeGestureRecognizer.Direction.up :
-            UIView.animate(withDuration: 0.5, delay: 0, options: [], animations: { [self] in
+            UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: { [self] in
                 photoView.transform = CGAffineTransform(translationX: 0, y: -UIScreen.main.bounds.height)
-            }, completion: nil)
-            
+            }, completion:{(success) in
+                if success {
+                    self.photoView.transform = .identity
+                    self.shareImage()
+                }
+            } )
         default:break
         }
+    }
+    
+    private func shareImage() {
+        let photoBounds = photoView.bounds
+        UIGraphicsBeginImageContextWithOptions(photoBounds.size,true,0.0)
+        self.photoView.drawHierarchy(in: photoBounds, afterScreenUpdates: true)
+            let photoImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+        let imageToShare = [photoImage!]
+        let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        self.present(activityViewController, animated: true,completion: nil)
     }
     
     private func updateLayoutStacking(withLayoutButton : UIButton) {
