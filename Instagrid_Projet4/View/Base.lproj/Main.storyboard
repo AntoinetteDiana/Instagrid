@@ -79,10 +79,16 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GMm-tY-AFz">
                                                         <rect key="frame" x="0.0" y="0.0" width="142" height="142"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <connections>
+                                                            <action selector="photo1ButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nd0-Ea-XO5"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="26T-Cb-5Xu">
                                                         <rect key="frame" x="152" y="0.0" width="142" height="142"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <connections>
+                                                            <action selector="photo2ButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8k9-6X-0oS"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -92,10 +98,16 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OON-Kh-AzY">
                                                         <rect key="frame" x="0.0" y="0.0" width="142" height="142"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <connections>
+                                                            <action selector="photo3ButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tog-Sx-2j4"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RfQ-Cq-qjQ">
                                                         <rect key="frame" x="152" y="0.0" width="142" height="142"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <connections>
+                                                            <action selector="photo4ButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QVK-ht-LYw"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
