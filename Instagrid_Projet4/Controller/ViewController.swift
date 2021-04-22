@@ -53,21 +53,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         tapButtonAction(sender: sender)
     }
     
-    @IBAction func respondToSwipeGesture(_ sender: UISwipeGestureRecognizer) {
-        switch sender.direction {
-        case UISwipeGestureRecognizer.Direction.up :
-            UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: { [self] in
-                photoView.transform = CGAffineTransform(translationX: 0, y: -UIScreen.main.bounds.height)
-            }, completion:{(success) in
-                if success {
-                    self.photoView.transform = .identity
-                    self.shareImage()
-                }
-            } )
-        default:break
-        }
-    }
-    
 // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -112,6 +97,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             photo4Button.isHidden = false
         default: break
         }
+    }
+    
+    /// action to perform after swipe gesture
+    @objc func respondToSwipeGesture() {
+            UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: { [self] in
+                photoView.transform = CGAffineTransform(translationX: 0, y: -UIScreen.main.bounds.height)
+            }, completion:{_ in
+                    self.photoView.transform = .identity
+                    self.shareImage()
+            } )
     }
     
     /// create an UIImage from a UIView
@@ -168,7 +163,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-//        photo1Button.contentMode = .scaleAspectFit
         
         if photo1Button.isSelected {
             photo1Button.setBackgroundImage(image, for: .normal)
