@@ -30,12 +30,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         updateLayoutStacking(withLayoutButton: layout1Button)
         updatePhotoStacking(withLayoutButton: layout1Button)
     }
-    
     @IBAction func tapLayout2Button(_ sender: UIButton) {
         updateLayoutStacking(withLayoutButton: layout2Button)
         updatePhotoStacking(withLayoutButton: layout2Button)
     }
-    
     @IBAction func tapLayout3Button(_ sender: UIButton) {
         updateLayoutStacking(withLayoutButton: layout3Button)
         updatePhotoStacking(withLayoutButton: layout3Button)
@@ -45,32 +43,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func photo1ButtonTap(_ sender: UIButton) {
         tapButtonAction(sender: sender)
     }
-    
     @IBAction func photo2ButtonTap(_ sender: UIButton) {
         tapButtonAction(sender: sender)
     }
-    
     @IBAction func photo3ButtonTap(_ sender: UIButton) {
         tapButtonAction(sender: sender)
     }
-    
     @IBAction func photo4ButtonTap(_ sender: UIButton) {
         tapButtonAction(sender: sender)
-    }
-    
-    @IBAction func respondToSwipeGesture(_ sender: UISwipeGestureRecognizer) {
-        switch sender.direction {
-        case UISwipeGestureRecognizer.Direction.up :
-            UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: { [self] in
-                photoView.transform = CGAffineTransform(translationX: 0, y: -UIScreen.main.bounds.height)
-            }, completion:{(success) in
-                if success {
-                    self.photoView.transform = .identity
-                    self.shareImage()
-                }
-            } )
-        default:break
-        }
     }
     
 // MARK: - viewDidLoad
@@ -119,8 +99,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
-
+    /// action to perform after swipe gesture
+    @objc func respondToSwipeGesture() {
+            UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: { [self] in
+                photoView.transform = CGAffineTransform(translationX: 0, y: -UIScreen.main.bounds.height)
+            }, completion:{_ in
+                    self.photoView.transform = .identity
+                    self.shareImage()
+            } )
+    }
     
+    /// create an UIImage from a UIView
     private func imageWithView(view:UIView) -> UIImage {
         let viewBounds = view.bounds
         UIGraphicsBeginImageContextWithOptions(viewBounds.size,false,0.0)
@@ -129,7 +118,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         UIGraphicsEndImageContext()
         return image!
     }
-    
+    /// open the UIActivityViewController to share a UIImage
     private func shareImage() {
         let imageToShare = [imageWithView(view: photoView)]
         let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
@@ -137,9 +126,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.present(activityViewController, animated: true,completion: nil)
     }
     
-    
-
-    
+    /// open the library to choose a picture when tapping on a photo button
     private func tapButtonAction(sender:UIButton) {
         selectionButton(button: sender)
         let imagePickerController = UIImagePickerController()
@@ -147,6 +134,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.present(imagePickerController, animated: true, completion: nil)
     }
     
+    /// select the photo button choosen and unselected the other one
     private func selectionButton(button: UIButton) {
         switch button {
         case photo1Button:
@@ -175,7 +163,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-//        photo1Button.contentMode = .scaleAspectFit
         
         if photo1Button.isSelected {
             photo1Button.setBackgroundImage(image, for: .normal)
