@@ -165,13 +165,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         
         if photo1Button.isSelected {
-            photo1Button.setBackgroundImage(image, for: .normal)
+            photo1Button.setImage(image, for: .normal)
         } else if photo2Button.isSelected {
-            photo2Button.setBackgroundImage(image, for: .normal)
+            photo2Button.setImage(image, for: .normal)
         } else if photo3Button.isSelected {
-            photo3Button.setBackgroundImage(image, for: .normal)
+            photo3Button.setImage(image, for: .normal)
         } else if photo4Button.isSelected {
-            photo4Button.setBackgroundImage(image, for: .normal)
+            photo4Button.setImage(image, for: .normal)
         }
         picker.dismiss(animated: true, completion: nil)
     }
