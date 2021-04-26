@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-// MARK: - Outlet
+    // MARK: - Outlet
     // Layout Button declaration
     @IBOutlet var layout1Button : UIButton!
     @IBOutlet var layout2Button : UIButton!
@@ -24,7 +24,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // Photo Stack View declaration
     @IBOutlet var photoView : UIView!
     
-// MARK: - Action Outlet
+    // MARK: - Action Outlet
     // Layout Button action
     @IBAction func tapLayout1Button(_ sender: UIButton) {
         updateLayoutStacking(withLayoutButton: layout1Button)
@@ -53,18 +53,35 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         tapButtonAction(sender: sender)
     }
     
-// MARK: - viewDidLoad
+    // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         updateLayoutStacking(withLayoutButton: layout2Button)
         updatePhotoStacking(withLayoutButton: layout2Button)
         
-        let swipeGestureUp = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture))
+//        let orientation = UIDevice.current.orientation
+//        switch orientation {
+//        case UIDeviceOrientation.landscapeLeft, UIDeviceOrientation.landscapeRight:
+//            let swipeGestureLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGestureLeft))
+//            swipeGestureLeft.direction = UISwipeGestureRecognizer.Direction.left
+//            self.photoView.addGestureRecognizer(swipeGestureLeft)
+//        case UIDeviceOrientation.portrait :
+//            let swipeGestureUp = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGestureUp))
+//            swipeGestureUp.direction = UISwipeGestureRecognizer.Direction.up
+//            self.photoView.addGestureRecognizer(swipeGestureUp)
+//        default:break
+//        }
+        
+        let swipeGestureUp = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGestureUp))
         swipeGestureUp.direction = UISwipeGestureRecognizer.Direction.up
         photoView.addGestureRecognizer(swipeGestureUp)
+
+        let swipeGestureLeft = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGestureLeft))
+        swipeGestureLeft.direction = UISwipeGestureRecognizer.Direction.left
+        photoView.addGestureRecognizer(swipeGestureLeft)
     }
     
-// MARK: - Methodes
+    // MARK: - Methodes
     /// select the layout button choosen and unselected the other one
     private func updateLayoutStacking(withLayoutButton : UIButton) {
         switch withLayoutButton {
@@ -100,13 +117,28 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     /// action to perform after swipe gesture
-    @objc func respondToSwipeGesture() {
-            UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: { [self] in
-                photoView.transform = CGAffineTransform(translationX: 0, y: -UIScreen.main.bounds.height)
-            }, completion:{_ in
-                    self.photoView.transform = .identity
-                    self.shareImage()
-            } )
+    @objc func respondToSwipeGestureUp () {
+        let transform : CGAffineTransform
+        transform = CGAffineTransform(translationX: 0, y: -UIScreen.main.bounds.height)
+        
+        UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: { [self] in
+            photoView.transform = transform
+        }, completion:{_ in
+            self.photoView.transform = .identity
+            self.shareImage()
+        } )
+    }
+    
+    @objc func respondToSwipeGestureLeft () {
+        let transform : CGAffineTransform
+        transform = CGAffineTransform(translationX: -UIScreen.main.bounds.width, y: 0)
+        
+        UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: { [self] in
+            photoView.transform = transform
+        }, completion:{_ in
+            self.photoView.transform = .identity
+            self.shareImage()
+        } )
     }
     
     /// create an UIImage from a UIView
