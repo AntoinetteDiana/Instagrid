@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -68,7 +68,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GMm-tY-AFz">
                                                         <rect key="frame" x="0.0" y="0.0" width="142" height="142"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" image="Plus"/>
+                                                        <state key="normal" image="Combined Shape"/>
                                                         <connections>
                                                             <action selector="photoButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ryV-tP-rDa"/>
                                                         </connections>
@@ -76,7 +76,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="26T-Cb-5Xu">
                                                         <rect key="frame" x="152" y="0.0" width="142" height="142"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" image="Plus"/>
+                                                        <state key="normal" image="Combined Shape"/>
                                                         <connections>
                                                             <action selector="photoButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="y3U-zx-7RI"/>
                                                         </connections>
@@ -89,7 +89,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OON-Kh-AzY">
                                                         <rect key="frame" x="0.0" y="0.0" width="142" height="142"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" image="Plus"/>
+                                                        <state key="normal" image="Combined Shape"/>
                                                         <connections>
                                                             <action selector="photoButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ewk-rv-8rk"/>
                                                         </connections>
@@ -97,7 +97,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RfQ-Cq-qjQ">
                                                         <rect key="frame" x="152" y="0.0" width="142" height="142"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" image="Plus"/>
+                                                        <state key="normal" image="Combined Shape"/>
                                                         <connections>
                                                             <action selector="photoButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rda-Gj-Tc1"/>
                                                         </connections>
@@ -118,10 +118,10 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jC3-o0-t7M">
-                                <rect key="frame" x="118" y="223" width="178.5" height="60"/>
+                                <rect key="frame" x="118" y="228" width="178.5" height="55"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Up" translatesAutoresizingMaskIntoConstraints="NO" id="a2T-dc-LpV">
-                                        <rect key="frame" x="0.0" y="0.0" width="178.5" height="17.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="178.5" height="12.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16.5" id="Pen-Vw-EOJ"/>
                                         </constraints>
@@ -137,7 +137,7 @@
                                         </variation>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFe-dZ-krA">
-                                        <rect key="frame" x="0.0" y="27.5" width="178.5" height="32.5"/>
+                                        <rect key="frame" x="0.0" y="22.5" width="178.5" height="32.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="26.5" id="Gqx-yh-mj1"/>
                                         </constraints>
@@ -174,7 +174,7 @@
                                 </subviews>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="8Gm-eM-xgE"/>
+                                    <constraint firstAttribute="height" constant="55" id="X8Y-9l-Ryr"/>
                                     <constraint firstAttribute="height" constant="53" id="cpO-8w-lcG"/>
                                 </constraints>
                                 <variation key="default">
@@ -184,7 +184,7 @@
                                 </variation>
                                 <variation key="heightClass=compact">
                                     <mask key="constraints">
-                                        <exclude reference="8Gm-eM-xgE"/>
+                                        <exclude reference="X8Y-9l-Ryr"/>
                                         <exclude reference="cpO-8w-lcG"/>
                                     </mask>
                                 </variation>
@@ -279,6 +279,7 @@
                                 <exclude reference="F3W-Qd-qG3"/>
                                 <exclude reference="K0M-Et-bUH"/>
                                 <exclude reference="wgQ-37-NhT"/>
+                                <exclude reference="pAy-At-Sfc"/>
                                 <include reference="YQf-kK-eSb"/>
                                 <exclude reference="Zrn-qR-n8H"/>
                                 <include reference="nFH-TT-LiI"/>
@@ -292,7 +293,6 @@
                                 <include reference="XW1-vF-gY0"/>
                                 <exclude reference="o8y-QJ-RJq"/>
                                 <exclude reference="uB2-qw-1jx"/>
-                                <exclude reference="pAy-At-Sfc"/>
                                 <exclude reference="bpw-9z-vFv"/>
                                 <exclude reference="ccG-Kq-bWd"/>
                                 <exclude reference="isT-NP-i9E"/>
@@ -324,11 +324,11 @@
     </scenes>
     <resources>
         <image name="Arrow Left" width="3.5" height="4.5"/>
-        <image name="Arrow Up" width="4.5" height="3.5"/>
-        <image name="Layout 1" width="27" height="27"/>
-        <image name="Layout 2" width="27" height="27"/>
-        <image name="Layout 3" width="27" height="27"/>
-        <image name="Plus" width="13.5" height="13.5"/>
-        <image name="Selected" width="27" height="27"/>
+        <image name="Arrow Up" width="13.5" height="9.5"/>
+        <image name="Combined Shape" width="40" height="40"/>
+        <image name="Layout 1" width="80" height="80"/>
+        <image name="Layout 2" width="80" height="80"/>
+        <image name="Layout 3" width="80" height="80"/>
+        <image name="Selected" width="80" height="80"/>
     </resources>
 </document>

@@ -52,14 +52,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     // MARK: - Methodes
-    @objc private func wichSwipeDirection() {
-        if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
-            swipeGesture?.direction = .left
-
-        } else {
-            swipeGesture?.direction = .up
-        }
-    }
     
     /// select the layout button choosen and unselected the other one
     private func updateLayoutStacking(withLayoutButton : UIButton) {
@@ -112,10 +104,24 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         picker.dismiss(animated: true, completion: nil)
     }
     
+    /// change the swipeGesture direction following the orientation of the phone
+    @objc private func wichSwipeDirection() {
+        if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
+            swipeGesture?.direction = .left
+
+        } else {
+            swipeGesture?.direction = .up
+        }
+    }
+    
     /// action to perform after swipe gesture
     @objc func respondToSwipeGesture () {
         let transform : CGAffineTransform
-        transform = CGAffineTransform(translationX: 0, y: -UIScreen.main.bounds.height)
+        if swipeGesture?.direction == .up {
+            transform = CGAffineTransform(translationX: 0, y: -UIScreen.main.bounds.height)
+        } else {
+            transform = CGAffineTransform(translationX: -UIScreen.main.bounds.width, y: 0)
+        }
 
         UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: { [self] in
             photoView.transform = transform
