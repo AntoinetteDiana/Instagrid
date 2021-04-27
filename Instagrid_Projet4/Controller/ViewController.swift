@@ -33,38 +33,33 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         tapButtonAction(sender: sender)
     }
     
+    // MARK: - Properties
+    
+    private var swipeGesture : UISwipeGestureRecognizer?
+    
     // MARK: - viewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         updateLayoutStacking(withLayoutButton: layoutButton[1])
         updatePhotoStacking(withLayoutButton: layoutButton[1])
         
-//        let swipeGestureUp = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGestureUp))
-//        swipeGestureUp.direction = UISwipeGestureRecognizer.Direction.up
-//        photoView.addGestureRecognizer(swipeGestureUp)
-//
-//        let swipeGestureLeft = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGestureLeft))
-//        swipeGestureLeft.direction = UISwipeGestureRecognizer.Direction.left
-//        photoView.addGestureRecognizer(swipeGestureLeft)
+        swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture))
+        photoView.addGestureRecognizer(swipeGesture!)
         
-//        NotificationCenter.default.addObserver(self, selector: #selector(wichSwipeDirection), name: UIDevice.orientationDidChangeNotification, object: nil)
-//
+        NotificationCenter.default.addObserver(self, selector: #selector(wichSwipeDirection), name: UIDevice.orientationDidChangeNotification, object: nil)
     }
     
-//    let swipeGesture : UISwipeGestureRecognizer?
-    
-    
     // MARK: - Methodes
-//    @objc private func wichSwipeDirection() {
-//        if UIDevice.current.Orientation == .landscape.left {
-//            swipeGesture.direction = .left
-//
-//        } else {
-//            swipeGesture.direction = .up
-//        }
-//
-//    }
+    @objc private func wichSwipeDirection() {
+        if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
+            swipeGesture?.direction = .left
+
+        } else {
+            swipeGesture?.direction = .up
+        }
+    }
     
     /// select the layout button choosen and unselected the other one
     private func updateLayoutStacking(withLayoutButton : UIButton) {
@@ -114,32 +109,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 photo.setImage(image, for: .normal)
             }
         }
-        
         picker.dismiss(animated: true, completion: nil)
     }
     
-    
     /// action to perform after swipe gesture
-    @objc func respondToSwipeGestureUp () {
+    @objc func respondToSwipeGesture () {
         let transform : CGAffineTransform
         transform = CGAffineTransform(translationX: 0, y: -UIScreen.main.bounds.height)
 
         UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: { [self] in
             photoView.transform = transform
         }, completion:{_ in
-            self.photoView.transform = .identity
-            self.shareImage()
-        } )
-    }
-    
-    @objc func respondToSwipeGestureLeft () {
-        let transform : CGAffineTransform
-        transform = CGAffineTransform(translationX: -UIScreen.main.bounds.width, y: 0)
-        
-        UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: { [self] in
-            photoView.transform = transform
-        }, completion:{_ in
-            self.photoView.transform = .identity
             self.shareImage()
         } )
     }
@@ -158,7 +138,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let imageToShare = [imageWithView(view: photoView)]
         let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view
-        self.present(activityViewController, animated: true,completion: nil)
+        self.present(activityViewController, animated: true,completion:{
+            self.photoView.transform = .identity
+        })
     }
     
 }
