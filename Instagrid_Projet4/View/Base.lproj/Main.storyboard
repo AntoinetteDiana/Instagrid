@@ -125,9 +125,21 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Up" translatesAutoresizingMaskIntoConstraints="NO" id="a2T-dc-LpV">
                                         <rect key="frame" x="0.0" y="0.0" width="185" height="16.5"/>
-                                        <variation key="heightClass=compact" image="Arrow Left"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="16.5" id="Pen-Vw-EOJ"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="Pen-Vw-EOJ"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=compact" image="Arrow Left">
+                                            <mask key="constraints">
+                                                <include reference="Pen-Vw-EOJ"/>
+                                            </mask>
+                                        </variation>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFe-dZ-krA">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFe-dZ-krA">
                                         <rect key="frame" x="0.0" y="26.5" width="185" height="33.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="26.5" id="Gqx-yh-mj1"/>
@@ -159,6 +171,7 @@
                                 </variation>
                                 <variation key="heightClass=compact">
                                     <mask key="constraints">
+                                        <exclude reference="8Gm-eM-xgE"/>
                                         <exclude reference="cpO-8w-lcG"/>
                                     </mask>
                                 </variation>
@@ -195,6 +208,7 @@
                         <color key="backgroundColor" red="0.59534555673599243" green="0.85845285654067993" blue="0.91710048913955688" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="dVM-Tk-4kP" firstAttribute="top" secondItem="NjL-IZ-eEv" secondAttribute="bottom" constant="8" id="7Bh-Hf-mpp"/>
+                            <constraint firstItem="dVM-Tk-4kP" firstAttribute="leading" secondItem="jC3-o0-t7M" secondAttribute="trailing" constant="8" id="8QT-jV-VCW"/>
                             <constraint firstItem="dVM-Tk-4kP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8uz-DD-TfK"/>
                             <constraint firstItem="dVM-Tk-4kP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="AYK-RL-ejy"/>
                             <constraint firstItem="NjL-IZ-eEv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BKq-vj-0kR"/>
@@ -236,6 +250,7 @@
                                 <exclude reference="nFH-TT-LiI"/>
                                 <exclude reference="pwT-z1-I9M"/>
                                 <exclude reference="7Bh-Hf-mpp"/>
+                                <exclude reference="8QT-jV-VCW"/>
                                 <exclude reference="Hn2-Oh-15g"/>
                                 <exclude reference="Nek-vn-k0d"/>
                                 <exclude reference="XW1-vF-gY0"/>
@@ -255,8 +270,8 @@
                                 <exclude reference="Zrn-qR-n8H"/>
                                 <include reference="nFH-TT-LiI"/>
                                 <exclude reference="pwT-z1-I9M"/>
-                                <exclude reference="pAy-At-Sfc"/>
                                 <exclude reference="7Bh-Hf-mpp"/>
+                                <include reference="8QT-jV-VCW"/>
                                 <exclude reference="AYK-RL-ejy"/>
                                 <exclude reference="H2Z-bp-Tzh"/>
                                 <include reference="Hn2-Oh-15g"/>
@@ -264,6 +279,7 @@
                                 <include reference="XW1-vF-gY0"/>
                                 <exclude reference="o8y-QJ-RJq"/>
                                 <exclude reference="uB2-qw-1jx"/>
+                                <exclude reference="pAy-At-Sfc"/>
                                 <exclude reference="bpw-9z-vFv"/>
                                 <exclude reference="ccG-Kq-bWd"/>
                                 <exclude reference="isT-NP-i9E"/>
