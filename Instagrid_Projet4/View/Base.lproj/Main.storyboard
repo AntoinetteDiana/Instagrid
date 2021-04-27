@@ -7,9 +7,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Delm-Medium.otf">
-            <string>Delm-Medium</string>
-        </array>
         <array key="ThirstySoftRegular.otf">
             <string>ThirstySoftRegular</string>
         </array>
@@ -32,7 +29,7 @@
                                         <state key="normal" backgroundImage="Layout 1"/>
                                         <state key="selected" image="Selected"/>
                                         <connections>
-                                            <action selector="tapLayout1Button:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EXu-vr-zdX"/>
+                                            <action selector="layoutButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xdG-B2-MwE"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="irK-ZU-xXv">
@@ -41,7 +38,7 @@
                                         <state key="normal" backgroundImage="Layout 2"/>
                                         <state key="selected" image="Selected"/>
                                         <connections>
-                                            <action selector="tapLayout2Button:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qPx-Ni-7c0"/>
+                                            <action selector="layoutButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HfR-hA-Qob"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="og2-h6-wII">
@@ -53,7 +50,7 @@
                                         <state key="normal" backgroundImage="Layout 3"/>
                                         <state key="selected" image="Selected"/>
                                         <connections>
-                                            <action selector="tapLayout3Button:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z4o-ky-1So"/>
+                                            <action selector="layoutButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="npW-O7-e4d"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -73,7 +70,7 @@
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" image="Plus"/>
                                                         <connections>
-                                                            <action selector="photo1ButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nd0-Ea-XO5"/>
+                                                            <action selector="photoButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ryV-tP-rDa"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="26T-Cb-5Xu">
@@ -81,7 +78,7 @@
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" image="Plus"/>
                                                         <connections>
-                                                            <action selector="photo2ButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8k9-6X-0oS"/>
+                                                            <action selector="photoButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="y3U-zx-7RI"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -94,7 +91,7 @@
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" image="Plus"/>
                                                         <connections>
-                                                            <action selector="photo3ButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tog-Sx-2j4"/>
+                                                            <action selector="photoButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ewk-rv-8rk"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RfQ-Cq-qjQ">
@@ -102,7 +99,7 @@
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" image="Plus"/>
                                                         <connections>
-                                                            <action selector="photo4ButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QVK-ht-LYw"/>
+                                                            <action selector="photoButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rda-Gj-Tc1"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -121,10 +118,10 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jC3-o0-t7M">
-                                <rect key="frame" x="114.5" y="223" width="185" height="60"/>
+                                <rect key="frame" x="118" y="223" width="178.5" height="60"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Up" translatesAutoresizingMaskIntoConstraints="NO" id="a2T-dc-LpV">
-                                        <rect key="frame" x="0.0" y="0.0" width="185" height="16.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="178.5" height="17.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16.5" id="Pen-Vw-EOJ"/>
                                         </constraints>
@@ -139,13 +136,20 @@
                                             </mask>
                                         </variation>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFe-dZ-krA">
-                                        <rect key="frame" x="0.0" y="26.5" width="185" height="33.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFe-dZ-krA">
+                                        <rect key="frame" x="0.0" y="27.5" width="178.5" height="32.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="26.5" id="Gqx-yh-mj1"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="30"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Swipe up to share">
+                                                <attributes>
+                                                    <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <font key="NSFont" size="29" name="Delm-Medium"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
                                         <nil key="highlightedColor"/>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -153,6 +157,15 @@
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=compact">
+                                            <attributedString key="attributedText">
+                                                <fragment content="Swipe left to share">
+                                                    <attributes>
+                                                        <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <font key="NSFont" size="29" name="Delm-Medium"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
                                             <mask key="constraints">
                                                 <exclude reference="Gqx-yh-mj1"/>
                                             </mask>
@@ -289,14 +302,14 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="layout1Button" destination="f5P-fn-FGt" id="6su-7l-hjC"/>
-                        <outlet property="layout2Button" destination="irK-ZU-xXv" id="O3n-rZ-iqh"/>
-                        <outlet property="layout3Button" destination="og2-h6-wII" id="SWS-mJ-Hrn"/>
-                        <outlet property="photo1Button" destination="GMm-tY-AFz" id="Z1l-Sq-7G4"/>
-                        <outlet property="photo2Button" destination="26T-Cb-5Xu" id="uoo-IY-yOw"/>
-                        <outlet property="photo3Button" destination="OON-Kh-AzY" id="WXI-FQ-29J"/>
-                        <outlet property="photo4Button" destination="RfQ-Cq-qjQ" id="Dvq-gz-RBi"/>
                         <outlet property="photoView" destination="dVM-Tk-4kP" id="zpx-py-TOp"/>
+                        <outletCollection property="layoutButton" destination="f5P-fn-FGt" collectionClass="NSMutableArray" id="8Xx-NT-Lu9"/>
+                        <outletCollection property="layoutButton" destination="irK-ZU-xXv" collectionClass="NSMutableArray" id="04D-5R-cqm"/>
+                        <outletCollection property="layoutButton" destination="og2-h6-wII" collectionClass="NSMutableArray" id="QWU-hy-yCn"/>
+                        <outletCollection property="photoButton" destination="GMm-tY-AFz" collectionClass="NSMutableArray" id="S51-mN-uXB"/>
+                        <outletCollection property="photoButton" destination="26T-Cb-5Xu" collectionClass="NSMutableArray" id="IZ1-7G-SlN"/>
+                        <outletCollection property="photoButton" destination="OON-Kh-AzY" collectionClass="NSMutableArray" id="r6e-lJ-Bdo"/>
+                        <outletCollection property="photoButton" destination="RfQ-Cq-qjQ" collectionClass="NSMutableArray" id="Sxy-HE-hxW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
