@@ -120,15 +120,14 @@
                                     <constraint firstAttribute="width" secondItem="dVM-Tk-4kP" secondAttribute="height" multiplier="1:1" id="yku-n9-2Fi"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="jC3-o0-t7M">
-                                <rect key="frame" x="50" y="212" width="314" height="71"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jC3-o0-t7M">
+                                <rect key="frame" x="114.5" y="223" width="185" height="60"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Up" translatesAutoresizingMaskIntoConstraints="NO" id="cFm-op-Dsu">
-                                        <rect key="frame" x="0.0" y="0.0" width="314" height="35.5"/>
-                                        <variation key="heightClass=compact" image="Arrow Left"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Up" translatesAutoresizingMaskIntoConstraints="NO" id="a2T-dc-LpV">
+                                        <rect key="frame" x="0.0" y="0.0" width="185" height="16.5"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFe-dZ-krA">
-                                        <rect key="frame" x="0.0" y="35.5" width="314" height="35.5"/>
+                                        <rect key="frame" x="0.0" y="26.5" width="185" height="33.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="26.5" id="Gqx-yh-mj1"/>
                                         </constraints>
@@ -149,8 +148,8 @@
                                 </subviews>
                                 <gestureRecognizers/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="8Gm-eM-xgE"/>
                                     <constraint firstAttribute="height" constant="53" id="cpO-8w-lcG"/>
-                                    <constraint firstAttribute="width" secondItem="jC3-o0-t7M" secondAttribute="height" multiplier="314:71" id="gbT-5C-M0G"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -164,7 +163,7 @@
                                 </variation>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NjL-IZ-eEv">
-                                <rect key="frame" x="40" y="84" width="334" height="52"/>
+                                <rect key="frame" x="40" y="64" width="334" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="184" id="4d7-BM-nUD"/>
                                     <constraint firstAttribute="width" secondItem="NjL-IZ-eEv" secondAttribute="height" multiplier="167:26" id="Lff-Yd-eoF"/>
@@ -204,16 +203,15 @@
                             </constraint>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dVM-Tk-4kP" secondAttribute="bottom" constant="20" id="F3W-Qd-qG3"/>
                             <constraint firstItem="dVM-Tk-4kP" firstAttribute="top" secondItem="jC3-o0-t7M" secondAttribute="bottom" constant="8" id="H2Z-bp-Tzh"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jC3-o0-t7M" secondAttribute="trailing" constant="50" id="IvM-VN-kc1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NjL-IZ-eEv" secondAttribute="trailing" constant="40" id="K0M-Et-bUH"/>
                             <constraint firstItem="dVM-Tk-4kP" firstAttribute="leading" secondItem="jC3-o0-t7M" secondAttribute="trailing" constant="-95" id="Nek-vn-k0d">
                                 <variation key="heightClass=compact" constant="8"/>
                             </constraint>
-                            <constraint firstItem="jC3-o0-t7M" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="PY9-79-woz"/>
-                            <constraint firstItem="NjL-IZ-eEv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="U6O-Sv-usP">
+                            <constraint firstItem="NjL-IZ-eEv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="U6O-Sv-usP">
                                 <variation key="heightClass=compact" constant="8"/>
                             </constraint>
                             <constraint firstItem="jC3-o0-t7M" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="YQf-kK-eSb"/>
+                            <constraint firstItem="jC3-o0-t7M" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Zrn-qR-n8H"/>
                             <constraint firstItem="PX4-Xq-qGQ" firstAttribute="leading" secondItem="dVM-Tk-4kP" secondAttribute="trailing" constant="106" id="bpw-9z-vFv"/>
                             <constraint firstItem="PX4-Xq-qGQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="ccG-Kq-bWd"/>
                             <constraint firstItem="PX4-Xq-qGQ" firstAttribute="top" secondItem="NjL-IZ-eEv" secondAttribute="bottom" constant="20" id="isT-NP-i9E"/>
@@ -244,10 +242,9 @@
                         <variation key="heightClass=compact">
                             <mask key="constraints">
                                 <exclude reference="F3W-Qd-qG3"/>
-                                <exclude reference="IvM-VN-kc1"/>
                                 <exclude reference="K0M-Et-bUH"/>
                                 <exclude reference="wgQ-37-NhT"/>
-                                <exclude reference="PY9-79-woz"/>
+                                <exclude reference="pAy-At-Sfc"/>
                                 <include reference="YQf-kK-eSb"/>
                                 <include reference="nFH-TT-LiI"/>
                                 <exclude reference="pwT-z1-I9M"/>
@@ -257,7 +254,6 @@
                                 <include reference="Nek-vn-k0d"/>
                                 <exclude reference="o8y-QJ-RJq"/>
                                 <exclude reference="uB2-qw-1jx"/>
-                                <exclude reference="pAy-At-Sfc"/>
                                 <exclude reference="bpw-9z-vFv"/>
                                 <exclude reference="ccG-Kq-bWd"/>
                                 <exclude reference="isT-NP-i9E"/>
@@ -288,7 +284,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Arrow Left" width="3.5" height="4.5"/>
         <image name="Arrow Up" width="4.5" height="3.5"/>
         <image name="Layout 1" width="27" height="27"/>
         <image name="Layout 2" width="27" height="27"/>
