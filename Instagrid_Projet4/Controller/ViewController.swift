@@ -123,7 +123,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             transform = CGAffineTransform(translationX: -UIScreen.main.bounds.width, y: 0)
         }
 
-        UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: { [self] in
+        UIView.animate(withDuration: 0.3, animations: { [self] in
             photoView.transform = transform
         }, completion:{_ in
             self.shareImage()
