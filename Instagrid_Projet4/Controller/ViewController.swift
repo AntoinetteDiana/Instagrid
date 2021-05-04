@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController {
     
     // MARK: - Outlet
     
@@ -49,6 +49,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         photoView.addGestureRecognizer(swipeGesture!)
         
         NotificationCenter.default.addObserver(self, selector: #selector(wichSwipeDirection), name: UIDevice.orientationDidChangeNotification, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: - Methodes
@@ -93,16 +97,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         button.isSelected = true
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-        
-        for photo in photoButton {
-            if photo.isSelected {
-                photo.setImage(image, for: .normal)
-            }
-        }
-        picker.dismiss(animated: true, completion: nil)
-    }
+
     
     /// change the swipeGesture direction following the orientation of the phone
     @objc private func wichSwipeDirection() {
@@ -131,24 +126,36 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     /// create an UIImage from a UIView
-    private func imageWithView(view:UIView) -> UIImage {
-        let viewBounds = view.bounds
-        UIGraphicsBeginImageContextWithOptions(viewBounds.size,false,0.0)
-        view.drawHierarchy(in: viewBounds, afterScreenUpdates: true)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return image!
+    private func imageWithView (view: UIView) -> UIImage {
+    let image = UIGraphicsImageRenderer ( size: view.bounds.size )
+    return image.image { _ in view.drawHierarchy(in: view.bounds, afterScreenUpdates: true) }
     }
+    
     /// open the UIActivityViewController to share a UIImage
     private func shareImage() {
         let imageToShare = [imageWithView(view: photoView)]
         let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
-        activityViewController.popoverPresentationController?.sourceView = self.view
-        self.present(activityViewController, animated: true,completion:{
-            self.photoView.transform = .identity
-        })
+        activityViewController.popoverPresentationController?.sourceView = view
+        present(activityViewController, animated: true)
+        activityViewController.completionWithItemsHandler = { _, _, _, _ in
+            UIView.animate(withDuration: 0.3) {
+                self.photoView.transform = .identity
+            }
+        }
     }
     
 }
 
-
+extension ViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
+        
+        for photo in photoButton {
+            if photo.isSelected {
+                photo.setImage(image, for: .normal)
+                photo.imageView?.contentMode = .scaleAspectFill
+            }
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+}

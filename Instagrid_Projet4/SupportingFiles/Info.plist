@@ -69,5 +69,7 @@
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Acces needed</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string></string>
 </dict>
 </plist>
