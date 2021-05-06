@@ -97,13 +97,11 @@ class ViewController: UIViewController {
         button.isSelected = true
     }
     
-
-    
     /// change the swipeGesture direction following the orientation of the phone
     @objc private func wichSwipeDirection() {
         if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
             swipeGesture?.direction = .left
-
+            
         } else {
             swipeGesture?.direction = .up
         }
@@ -117,7 +115,7 @@ class ViewController: UIViewController {
         } else {
             transform = CGAffineTransform(translationX: -UIScreen.main.bounds.width, y: 0)
         }
-
+        
         UIView.animate(withDuration: 0.3, animations: { [self] in
             photoView.transform = transform
         }, completion:{_ in
@@ -127,8 +125,8 @@ class ViewController: UIViewController {
     
     /// create an UIImage from a UIView
     private func imageWithView (view: UIView) -> UIImage {
-    let image = UIGraphicsImageRenderer ( size: view.bounds.size )
-    return image.image { _ in view.drawHierarchy(in: view.bounds, afterScreenUpdates: true) }
+        let image = UIGraphicsImageRenderer ( size: view.bounds.size )
+        return image.image { _ in view.drawHierarchy(in: view.bounds, afterScreenUpdates: true) }
     }
     
     /// open the UIActivityViewController to share a UIImage
